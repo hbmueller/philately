@@ -7,7 +7,7 @@ Philately is a super easy to use rendering engine for HTML5 `<canvas>`. You have
 ```js
 import { Layer, Engine } from "philately";
 
-// Layers area resolved as promises. So, don't worry about images not being ready.
+// Layers are resolved as promises. So, don't worry about images not being ready.
 const myLayer = new Layer({ imageSrc: "./myAwesomeImage.png" });
 
 const myEngine = new Engine({
@@ -16,6 +16,21 @@ const myEngine = new Engine({
 });
 
 // Boom! You've got it working!
+```
+
+## Installation
+
+```sh
+npm install philately
+```
+
+Philately is published as native ES modules. Use `import` in the browser (directly or through a bundler) or in any ESM project. `require()` from CommonJS is not supported.
+
+TypeScript types are included. The option and parameter types can be imported from the package entry point:
+
+```ts
+import { Engine, Layer } from "philately";
+import type { EngineOptions, LayerOptions, StepParams } from "philately";
 ```
 
 ## Getting started
@@ -106,7 +121,7 @@ new Layer({
 - `posY`: The Y position of the layer
 - `opacity`: A number from 0 to 1 representing the opacity of the layer
 - `isActive`: A boolean for enabling/disabling the layer
-- `onStep`: A function that is called before each rendering cycle. The parameters passed are [`renderParams`](#renderParams)
+- `onStep`: A function that is called before each rendering cycle. The parameters passed are [`renderParams`](#renderparams)
   (same as in `Engine`) and `layer` (a reference to the layer itself)
 
 ### Methods
@@ -132,9 +147,9 @@ new Engine({
 - `target`: The target `<canvas>` element for the engine to be rendered on. It should be a selector string
   or the HTMLCanvasElement dom reference
 - `layers`: An array of `Layer` instances to be rendered. The last item in the array is rendered on top
-- `autoResize`: A boolean indicating if the target [canvas' width and height](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas#Attributes) to the element's display size
+- `autoResize`: A boolean indicating if the target [canvas' width and height](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas#Attributes) are bound to the element's display size
 - `isRunning`: _[read only]_ A boolean indicating if the engine's refresh cycle is active
-- `onStep`: A function that is called before each rendering cycle. A [`renderParams` object](#renderParams) is passed
+- `onStep`: A function that is called before each rendering cycle. A [`renderParams` object](#renderparams) is passed
   to the function.
 
 #### `renderParams`
