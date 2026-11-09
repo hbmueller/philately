@@ -1,4 +1,4 @@
-import type { ElementInfo, ElementType, SourceDimensions } from "../types";
+import type { ElementInfo, ElementType, SourceDimensions } from "../types.js";
 
 const getImageDimensions = ({
   naturalWidth,

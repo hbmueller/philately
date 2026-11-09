@@ -1,5 +1,6 @@
-import type { ElementType, ValidElementTypes } from "../types";
-import { getElementInfo, imageLoader } from ".";
+import type { ElementType, ValidElementTypes } from "../types.js";
+import { imageLoader } from "./createSource.js";
+import { getElementInfo } from "./getElementInfo.js";
 
 const isValidElement = (element: Element, validTypes: ValidElementTypes) =>
   element && validTypes.some((type) => element instanceof type);

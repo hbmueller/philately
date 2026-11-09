@@ -1,8 +1,0 @@
-node_modules
-.babelrc
-.eslintrc.json
-.gitignore
-.prettierrc.json
-src
-yarn-error.log
-yarn.lock

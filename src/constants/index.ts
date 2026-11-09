@@ -1,2 +1,2 @@
-export * from "./errors";
-export * from "./validElements";
+export * from "./errors.js";
+export * from "./validElements.js";

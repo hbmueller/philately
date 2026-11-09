@@ -4,11 +4,11 @@ import {
   ERROR_INVALID_ONSTEP_CALLBACK,
   ERROR_INVALID_TARGET,
   VALID_TARGET_TYPES,
-} from "./constants";
-import type { ElementInfo, StepParams } from "./types";
+} from "./constants/index.js";
+import type { ElementInfo, StepParams } from "./types.js";
 
-import { Layer } from "./Layer";
-import { getElement } from "./utils";
+import { Layer } from "./Layer.js";
+import { getElement } from "./utils/index.js";
 
 export type EngineOptions = {
   target?: string | HTMLCanvasElement;
@@ -177,10 +177,8 @@ export class Engine {
       }),
     };
 
-    this.layers.forEach(
-      (layer) => layer.onStep && layer.onStep(stepParams, layer)
-    );
-    this.onStep && this.onStep(stepParams);
+    this.layers.forEach((layer) => layer.onStep?.(stepParams, layer));
+    this.onStep?.(stepParams);
 
     this.draw();
     this.#state.lastCallTime = now;

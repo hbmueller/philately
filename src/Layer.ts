@@ -1,11 +1,11 @@
-import { ERROR_INVALID_SOURCE, VALID_SOURCE_TYPES } from "./constants";
+import { ERROR_INVALID_SOURCE, VALID_SOURCE_TYPES } from "./constants/index.js";
 import type {
   ElementType,
   SourceDimensions,
   SourcePromise,
   StepParams,
-} from "./types";
-import { createSource, getAsyncElement } from "./utils";
+} from "./types.js";
+import { createSource, getAsyncElement } from "./utils/index.js";
 
 export type LayerOptions = {
   source?: string | ElementType;

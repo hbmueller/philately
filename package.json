@@ -19,17 +19,32 @@
   ],
   "scripts": {
     "clean": "rimraf dist **/*.tsbuildinfo",
-    "build": "yarn clean && tsc",
-    "lint": "eslint src --fix"
+    "build": "pnpm clean && tsc",
+    "lint": "eslint src --fix",
+    "prepublishOnly": "eslint src && pnpm build",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/lodash": "4.14.191",
-    "@typescript-eslint/eslint-plugin": "5.50.0",
-    "@typescript-eslint/parser": "5.50.0",
-    "eslint": "8.33.0",
-    "eslint-plugin-prettier": "4.2.1",
-    "prettier": "2.8.3",
-    "rimraf": "4.1.2",
-    "typescript": "4.9.5"
-  }
+    "@eslint/js": "10.0.1",
+    "@typescript/native": "npm:typescript@7.0.2",
+    "eslint": "10.14.0",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-prettier": "5.5.7",
+    "prettier": "3.9.10",
+    "rimraf": "6.1.4",
+    "typescript": "npm:@typescript/typescript6@6.0.2",
+    "typescript-eslint": "8.72.1"
+  },
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "packageManager": "pnpm@10.8.0"
 }

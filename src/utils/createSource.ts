@@ -1,5 +1,5 @@
-import type { SourcePromise } from "../types";
-import { getElementInfo } from "./getElementInfo";
+import type { SourcePromise } from "../types.js";
+import { getElementInfo } from "./getElementInfo.js";
 
 export const imageLoader = (element: HTMLImageElement): SourcePromise =>
   new Promise((resolve, reject) => {
